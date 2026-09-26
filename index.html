@@ -1,64 +1,173 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardmaxxx | cardmaxx12 on eBay</title>
+    <title>CardMaxx12 | Premier Trading Cards</title>
+    
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Custom Foil effect */
-        .foil-text {
-            background: linear-gradient(
-                45deg,
-                #ffdf00,
-                #d4af37,
-                #ffdf00,
-                #f9f295,
-                #d4af37,
-                #ffdf00
-            );
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: shine 3s linear infinite;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19; /* Deep dark slate */
+            color: #ffffff;
         }
-        @keyframes shine {
+
+        .font-display {
+            font-family: 'Syncopate', sans-serif;
+        }
+
+        /* Subtle floating animation for background elements */
+        @keyframes float {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+
+        .blob-1 {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .blob-2 {
+            animation: float 12s ease-in-out infinite reverse;
+        }
+
+        /* Gold Foil Shimmer Effect for Button */
+        .btn-gold-foil {
+            background: linear-gradient(60deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            background-size: 300% 300%;
+            color: #111;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(191, 149, 63, 0.3);
+        }
+
+        .btn-gold-foil:hover {
+            background-position: 100% 50%;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(191, 149, 63, 0.5);
+        }
+
+        /* Text Gradient for Logo */
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #a0aec0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Entrance Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
             to {
-                background-position: 200% center;
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        /* Subtle card grid background pattern */
+        .bg-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center center;
         }
     </style>
 </head>
-<body class="bg-gray-950 text-white min-h-screen flex items-center justify-center font-sans p-4" style="background-image: radial-gradient(circle at top right, #1f2937 0%, #030712 100%);">
-    <div class="glass-card max-w-md w-full rounded-2xl p-10 text-center transform transition duration-500 hover:-translate-y-2">
-        <!-- Logo / Branding -->
-        <div class="mb-6">
-            <h1 class="text-5xl font-extrabold mb-1 uppercase tracking-widest foil-text">Cardmaxxx</h1>
-            <p class="text-gray-400 text-sm font-medium tracking-wide">eBay Store: @cardmaxx12</p>
+<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden antialiased selection:bg-yellow-500 selection:text-black">
+
+    <!-- Decorative Ambient Background Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-900/20 blur-[100px] blob-1"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-yellow-600/10 blur-[120px] blob-2"></div>
+        <div class="absolute top-[40%] left-[50%] translate-x-[-50%] w-[60vw] h-[30vw] rounded-full bg-purple-900/10 blur-[150px]"></div>
+    </div>
+    
+    <!-- Grid Overlay -->
+    <div class="fixed inset-0 bg-pattern pointer-events-none z-0 mix-blend-overlay"></div>
+
+    <!-- Top Navigation / Header -->
+    <header class="w-full p-6 relative z-10 flex justify-center lg:justify-start">
+        <div class="fade-in-up">
+            <!-- Optional: Small logo or icon could go here in the future -->
+        </div>
+    </header>
+
+    <!-- Main Content / Hero Section -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 relative z-10 text-center w-full max-w-4xl mx-auto">
+        
+        <!-- Premium Badge -->
+        <div class="fade-in-up delay-100 mb-6">
+            <span class="inline-block py-1 px-3 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400 text-xs font-semibold tracking-widest uppercase backdrop-blur-sm">
+                Official Storefront
+            </span>
+        </div>
+
+        <!-- Brand Name -->
+        <h1 class="fade-in-up delay-200 text-5xl sm:text-6xl md:text-8xl font-display tracking-tighter mb-4 drop-shadow-2xl">
+            CARD<span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">MAXX</span>12
+        </h1>
+
+        <!-- Tagline -->
+        <p class="fade-in-up delay-300 text-lg sm:text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+            Your premier destination for rare, graded, and raw trading cards. Elevate your collection today.
+        </p>
+
+        <!-- Call To Action Button -->
+        <div class="fade-in-up delay-300 w-full flex justify-center">
+            <a href="https://www.ebay.com/usr/cardmaxx12" target="_blank" rel="noopener noreferrer" 
+               class="btn-gold-foil group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl overflow-hidden focus:outline-none focus:ring-4 focus:ring-yellow-500/50">
+                
+                <span class="relative z-10 flex items-center gap-3">
+                    Visit Our eBay Store
+                    <!-- SVG Arrow Icon -->
+                    <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </span>
+            </a>
         </div>
         
-        <!-- Details -->
-        <div class="mb-10 space-y-2">
-            <p class="text-gray-100 text-xl font-semibold">Premium Sports Cards & TCG</p>
-            <p class="text-gray-400 text-sm">Specializing in soccer singles and refractors.</p>
+        <!-- Trust Indicators (Optional but good for conversions) -->
+        <div class="fade-in-up delay-300 mt-12 flex items-center justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
+            <div class="flex flex-col items-center">
+                <span class="text-2xl">⭐</span>
+                <span class="text-xs mt-1 font-medium tracking-wide">Top Rated</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-2xl">📦</span>
+                <span class="text-xs mt-1 font-medium tracking-wide">Fast Shipping</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-2xl">🛡️</span>
+                <span class="text-xs mt-1 font-medium tracking-wide">Secure</span>
+            </div>
         </div>
 
-        <!-- Call to Action -->
-        <a href="https://www.ebay.com/usr/cardmaxx12" class="inline-block w-full py-4 px-6 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.8)] focus:outline-none focus:ring-4 focus:ring-blue-800">
-            Visit My eBay Store
-        </a>
+    </main>
 
-        <!-- Footer -->
-        <div class="mt-10 pt-6 border-t border-gray-800 text-xs text-gray-500">
-            <p>&copy; 2026 Cardmaxxx. Based in Sacramento, CA.</p>
-        </div>
-    </div>
+    <!-- Footer -->
+    <footer class="w-full p-6 relative z-10 text-center border-t border-white/5 bg-black/20 backdrop-blur-md">
+        <p class="text-slate-500 text-sm">
+            &copy; <script>document.write(new Date().getFullYear())</script> CardMaxx12. All rights reserved.
+        </p>
+    </footer>
+
 </body>
 </html>
